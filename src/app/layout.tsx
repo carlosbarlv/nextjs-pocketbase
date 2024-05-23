@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { ConfigProvider, Layout } from "antd";
+import { Layout } from "antd";
 import { Content, Footer } from "antd/es/layout/layout";
 import NavBar from "@/components/NavBar";
+import ConfigProviderWrapper from "@/components/ConfigProviderWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AntdRegistry>
-          <ConfigProvider
-            theme={{
-              components: {
-                Layout: {
-                  colorBgBase: "#000",
-                },
-              },
-            }}
-          >
+          <ConfigProviderWrapper>
             <Layout style={{ minHeight: "100vh" }}>
               <NavBar />
               <Content style={{ alignItems: "start" }}>{children}</Content>
@@ -35,7 +28,7 @@ export default function RootLayout({
                 Created By: Carlos Gil
               </Footer>
             </Layout>
-          </ConfigProvider>
+          </ConfigProviderWrapper>
         </AntdRegistry>
       </body>
     </html>

@@ -11,8 +11,6 @@ export default async function ProductPreviewPage({
   const product = await pb.collection("products").getOne(`${params.id}`, {
     expand: "relField1,relField2.subRelField",
   });
-  // eslint-disable-next-line no-console
-  console.log(product);
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
   return (
