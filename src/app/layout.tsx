@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider, Layout } from "antd";
-import { Content, Footer, Header } from "antd/es/layout/layout";
+import { Content, Footer } from "antd/es/layout/layout";
 import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
           >
             <Layout style={{ minHeight: "100vh" }}>
               <NavBar />
-              <Content style={{ alignItems: 'start' }}>{children}</Content>
+              <Content style={{ alignItems: "start" }}>{children}</Content>
               <Footer style={{ textAlign: "center" }}>
                 Created By: Carlos Gil
               </Footer>
