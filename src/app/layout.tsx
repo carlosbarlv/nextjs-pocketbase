@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ConfigProvider, Layout } from "antd";
+import { Content, Footer, Header } from "antd/es/layout/layout";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <AntdRegistry>
+          <ConfigProvider
+            theme={{
+              components: {
+                Layout: {
+                  colorBgBase: "#000",
+                },
+              },
+            }}
+          >
+            <Layout style={{ minHeight: "100vh" }}>
+              <NavBar />
+              <Content style={{ alignItems: 'start' }}>{children}</Content>
+              <Footer style={{ textAlign: "center" }}>
+                Created By: Carlos Gil
+              </Footer>
+            </Layout>
+          </ConfigProvider>
+        </AntdRegistry>
+      </body>
     </html>
   );
 }
